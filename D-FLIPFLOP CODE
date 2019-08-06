@@ -1,0 +1,65 @@
+VERILOG CODE FOR D-FLIPFLOP -------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+module d_flipflop_verilog(q, d, rst , clk);
+
+output q;
+
+input d;
+
+input rst ;
+
+input clk;
+
+reg q;
+
+always @( posedge clk )
+
+if (rst)
+
+begin
+
+q <= 1'b0;
+
+end
+
+else
+
+begin
+
+q <= d;
+
+end
+
+endmodule
+
+
+D-FLIPFLOP TESTBENCH  --------------------------------------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+module d_flipflop_testbench ;
+
+reg d; 
+
+reg clk;
+
+wire q;
+
+d_flipflop_verilog uut( .q(q), .d(d), .clk(clk) );
+
+initial begin
+
+// Initialize Inputs
+
+d = 0 ;
+
+clk = 0;
+
+end
+
+always #5 clk=~clk; 
+
+always #3 d=~d;
+
+initial        #100 $stop;
+
+endmodule
+

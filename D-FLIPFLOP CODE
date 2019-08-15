@@ -47,7 +47,7 @@ d_flipflop_verilog uut( .q(q), .d(d), .clk(clk) );
 
 initial begin
 
-// Initialize Inputs
+//  Initialize Inputs
 
 d = 0 ;
 
